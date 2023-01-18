@@ -84,7 +84,7 @@
             </objects>
             <point key="canvasLocation" x="51" y="4"/>
         </scene>
-        <!--Question 1 from 3-->
+        <!--Questions-->
         <scene sceneID="MIJ-vg-2dJ">
             <objects>
                 <viewController id="fNy-Wb-wb3" sceneMemberID="viewController">
@@ -258,7 +258,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Question 1 from 3" id="VId-B6-XPc"/>
+                    <navigationItem key="navigationItem" title="Questions" id="VId-B6-XPc"/>
                     <connections>
                         <segue destination="LHR-QR-7un" kind="show" identifier="results" id="dsC-FM-10L"/>
                     </connections>
