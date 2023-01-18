@@ -73,6 +73,7 @@ class QuestionsViewController: UIViewController {
     }
     
     @IBAction func buttonThirdSVTapped() {
+        
     }
     
 }
@@ -87,11 +88,13 @@ extension QuestionsViewController {
         }
     }
     
-    // Next question after tapping Answer button
+    // Updating screen with next stack view and question
     private func updateQuestion() {
         hideAllStackViews()
         stackViews[currentIndex].isHidden = false
-        title = "Question \(currentIndex + 1) from 3"
+        title = "Question \(currentIndex + 1) from \(questions.count)"
+        progressQuiz.setProgress(Float(currentIndex) / Float(questions.count), animated: true)
+        
         questionLabel.text = questions[currentIndex].text
         
         switch currentQuestion {
@@ -105,7 +108,13 @@ extension QuestionsViewController {
         
     }
     
+    // Next question after tapping Answer button
     private func nextQuestion() {
+//        if currentIndex >= (questions.count - 1) {
+//            currentIndex = 0
+//        } else {
+//            currentIndex += 1
+//        }
         currentIndex += 1
         currentQuestion.nextQuestion()
         updateQuestion()
@@ -127,7 +136,7 @@ extension QuestionsViewController {
     }
     
     private func thirdQuestion() {
-        
+        //
     }
     
 }
