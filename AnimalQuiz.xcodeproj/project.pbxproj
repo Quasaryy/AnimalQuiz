@@ -9,25 +9,29 @@
 /* Begin PBXBuildFile section */
 		D22D784F2978272D00A054D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D784E2978272D00A054D6 /* AppDelegate.swift */; };
 		D22D78512978272D00A054D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D78502978272D00A054D6 /* SceneDelegate.swift */; };
-		D22D78532978272D00A054D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D78522978272D00A054D6 /* ViewController.swift */; };
+		D22D78532978272D00A054D6 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D78522978272D00A054D6 /* StartViewController.swift */; };
 		D22D78562978272D00A054D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22D78542978272D00A054D6 /* Main.storyboard */; };
 		D22D78582978272E00A054D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D22D78572978272E00A054D6 /* Assets.xcassets */; };
 		D22D785B2978272E00A054D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22D78592978272E00A054D6 /* LaunchScreen.storyboard */; };
 		D22D78672978422C00A054D6 /* Answers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D78662978422C00A054D6 /* Answers.swift */; };
 		D22D78692978424300A054D6 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D78682978424300A054D6 /* Questions.swift */; };
+		D22D786B297851C200A054D6 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D786A297851C200A054D6 /* QuestionsViewController.swift */; };
+		D22D786D297851D700A054D6 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D786C297851D700A054D6 /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D22D784B2978272D00A054D6 /* AnimalQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22D784E2978272D00A054D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D22D78502978272D00A054D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D22D78522978272D00A054D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D22D78522978272D00A054D6 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		D22D78552978272D00A054D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D22D78572978272E00A054D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D22D785A2978272E00A054D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D22D785C2978272E00A054D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D22D78662978422C00A054D6 /* Answers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answers.swift; sourceTree = "<group>"; };
 		D22D78682978424300A054D6 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
+		D22D786A297851C200A054D6 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		D22D786C297851D700A054D6 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +78,9 @@
 		D22D78622978416800A054D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D22D78522978272D00A054D6 /* ViewController.swift */,
+				D22D78522978272D00A054D6 /* StartViewController.swift */,
+				D22D786A297851C200A054D6 /* QuestionsViewController.swift */,
+				D22D786C297851D700A054D6 /* ResultViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -168,8 +174,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D22D78532978272D00A054D6 /* ViewController.swift in Sources */,
+				D22D78532978272D00A054D6 /* StartViewController.swift in Sources */,
+				D22D786D297851D700A054D6 /* ResultViewController.swift in Sources */,
 				D22D784F2978272D00A054D6 /* AppDelegate.swift in Sources */,
+				D22D786B297851C200A054D6 /* QuestionsViewController.swift in Sources */,
 				D22D78512978272D00A054D6 /* SceneDelegate.swift in Sources */,
 				D22D78692978424300A054D6 /* Questions.swift in Sources */,
 				D22D78672978422C00A054D6 /* Answers.swift in Sources */,
@@ -323,7 +331,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AnimalQuiz/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -355,7 +363,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AnimalQuiz/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Start View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnimalQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="StartViewController" customModule="AnimalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,6 +55,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Start quiz"/>
+                                        <connections>
+                                            <action selector="startButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="J4k-Ag-zoq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -87,7 +90,7 @@
         <!--Questions-->
         <scene sceneID="MIJ-vg-2dJ">
             <objects>
-                <viewController id="fNy-Wb-wb3" sceneMemberID="viewController">
+                <viewController id="fNy-Wb-wb3" customClass="QuestionsViewController" customModule="AnimalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5OE-Fb-b0j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,7 +104,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ZNO-H6-Grv">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ZNO-H6-Grv" userLabel="Stack View Third">
                                 <rect key="frame" x="16" y="265.5" width="343" height="136.5"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kcW-TN-DsE">
@@ -129,6 +132,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Answer"/>
+                                        <connections>
+                                            <action selector="buttonThirdVCTapped" destination="fNy-Wb-wb3" eventType="touchUpInside" id="ANO-Fi-VQp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -136,7 +142,7 @@
                                     <constraint firstItem="kcW-TN-DsE" firstAttribute="leading" secondItem="ZNO-H6-Grv" secondAttribute="leading" id="n1y-nu-htO"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MAB-VD-dmU">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MAB-VD-dmU" userLabel="Stack View Second">
                                 <rect key="frame" x="16" y="203" width="343" height="261"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ykP-VC-6y6">
@@ -195,6 +201,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Answer"/>
+                                        <connections>
+                                            <action selector="buttonSecondVCTapped" destination="fNy-Wb-wb3" eventType="touchUpInside" id="jam-OI-S5b"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -202,7 +211,7 @@
                                     <constraint firstItem="ykP-VC-6y6" firstAttribute="leading" secondItem="MAB-VD-dmU" secondAttribute="leading" id="kqR-hM-b5f"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="QKS-sK-YnD">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="QKS-sK-YnD" userLabel="Stack View First">
                                 <rect key="frame" x="158" y="236" width="59" height="195"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQ5-B9-P7M">
@@ -210,24 +219,36 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonfirstVCTapped" destination="fNy-Wb-wb3" eventType="touchUpInside" id="Bgh-Le-FLH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vI8-cY-2dl">
                                         <rect key="frame" x="0.0" y="53" width="59" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonfirstVCTapped" destination="fNy-Wb-wb3" eventType="touchUpInside" id="nMG-o6-51N"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhj-G6-YE6">
                                         <rect key="frame" x="0.0" y="106" width="59" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonfirstVCTapped" destination="fNy-Wb-wb3" eventType="touchUpInside" id="vCD-D3-fbB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtD-4X-6Sv">
                                         <rect key="frame" x="0.0" y="159" width="59" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonfirstVCTapped" destination="fNy-Wb-wb3" eventType="touchUpInside" id="SuW-PB-UhK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -260,17 +281,32 @@
                     </view>
                     <navigationItem key="navigationItem" title="Questions" id="VId-B6-XPc"/>
                     <connections>
+                        <outlet property="progressQuiz" destination="CqO-Bu-92O" id="AA1-O3-3OJ"/>
+                        <outlet property="questionLabel" destination="c8a-ry-l4I" id="h3L-ZN-YXl"/>
+                        <outlet property="slider" destination="kcW-TN-DsE" id="Fb9-nY-8K5"/>
+                        <outletCollection property="buttonsFirstSV" destination="DQ5-B9-P7M" collectionClass="NSMutableArray" id="fFl-cc-2OF"/>
+                        <outletCollection property="buttonsFirstSV" destination="vI8-cY-2dl" collectionClass="NSMutableArray" id="rIV-TL-xMH"/>
+                        <outletCollection property="buttonsFirstSV" destination="lhj-G6-YE6" collectionClass="NSMutableArray" id="I3o-hM-ARl"/>
+                        <outletCollection property="buttonsFirstSV" destination="VtD-4X-6Sv" collectionClass="NSMutableArray" id="fq9-Au-gp2"/>
+                        <outletCollection property="labelsSecondSV" destination="qAg-A0-vQB" collectionClass="NSMutableArray" id="1c7-80-6T9"/>
+                        <outletCollection property="labelsSecondSV" destination="Xpl-HL-zxS" collectionClass="NSMutableArray" id="z7I-vU-nJG"/>
+                        <outletCollection property="labelsSecondSV" destination="CZb-Im-imZ" collectionClass="NSMutableArray" id="YdM-vX-noD"/>
+                        <outletCollection property="labelsSecondSV" destination="GQZ-Gw-q5G" collectionClass="NSMutableArray" id="BE0-lS-mbB"/>
+                        <outletCollection property="stackViews" destination="QKS-sK-YnD" collectionClass="NSMutableArray" id="ym4-l9-DUt"/>
+                        <outletCollection property="stackViews" destination="MAB-VD-dmU" collectionClass="NSMutableArray" id="aUt-wt-rGq"/>
+                        <outletCollection property="stackViews" destination="ZNO-H6-Grv" collectionClass="NSMutableArray" id="5Jq-Gv-nY3"/>
+                        <outletCollection property="labelsThirdSV" destination="8xe-nS-Roc" collectionClass="NSMutableArray" id="hdU-S2-wsG"/>
                         <segue destination="LHR-QR-7un" kind="show" identifier="results" id="dsC-FM-10L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xWU-C4-VBh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="2"/>
+            <point key="canvasLocation" x="1551" y="3"/>
         </scene>
         <!--Results-->
         <scene sceneID="oQA-FV-jae">
             <objects>
-                <viewController id="LHR-QR-7un" sceneMemberID="viewController">
+                <viewController id="LHR-QR-7un" customClass="ResultViewController" customModule="AnimalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MNE-cg-rvf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -303,6 +339,10 @@
                     <navigationItem key="navigationItem" title="Results" id="SPs-qg-rhf">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="yeE-yb-5TT"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="nBi-qR-VgN" id="FGC-is-PQA"/>
+                        <outlet property="youAreLabel" destination="Bil-yK-ozq" id="vSS-7t-CtK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zku-vJ-BnH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
