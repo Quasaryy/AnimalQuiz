@@ -9,6 +9,17 @@ enum QuestionNumbers {
     case first
     case second
     case third
+    
+    mutating func nextQuestion() {
+        switch self {
+        case .first:
+            self = .second
+        case .second:
+            self = .third
+        case .third:
+            self = .first
+        }
+    }
 }
 
 struct Questions {
@@ -28,10 +39,10 @@ struct Questions {
             Questions(questionNumber: .first,
                       text: "What do you like to do",
                       answers: [
-                Answers(type: .cat, text: "To sleep"),
-                Answers(type: .dog, text: "To cuddle"),
-                Answers(type: .turtle, text: "To swimm"),
-                Answers(type: .rabbit, text: "To eat")
+                Answers(type: .cat, text: "Sleep"),
+                Answers(type: .dog, text: "Cuddle"),
+                Answers(type: .turtle, text: "Swimm"),
+                Answers(type: .rabbit, text: "Eat")
             ]),
             Questions(questionNumber: .first,
                       text: "Do you like car trips",

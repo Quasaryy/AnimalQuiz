@@ -13,6 +13,7 @@ class ResultViewController: UIViewController {
     @IBOutlet var youAreLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     
+    // MARK: Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         

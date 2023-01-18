@@ -110,17 +110,17 @@
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kcW-TN-DsE">
                                         <rect key="frame" x="-2" y="0.0" width="347" height="31"/>
                                     </slider>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="273" translatesAutoresizingMaskIntoConstraints="NO" id="DsZ-TR-JDr">
-                                        <rect key="frame" x="10.5" y="55" width="322.5" height="20.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DsZ-TR-JDr">
+                                        <rect key="frame" x="0.0" y="55" width="343" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Du-8d-JjA">
-                                                <rect key="frame" x="0.0" y="0.0" width="27.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Adore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Du-8d-JjA">
+                                                <rect key="frame" x="0.0" y="0.0" width="286.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xe-nS-Roc">
-                                                <rect key="frame" x="300.5" y="0.0" width="22" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xe-nS-Roc">
+                                                <rect key="frame" x="306.5" y="0.0" width="36.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -133,12 +133,14 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Answer"/>
                                         <connections>
-                                            <action selector="buttonThirdVCTapped" destination="fNy-Wb-wb3" eventType="touchUpInside" id="ANO-Fi-VQp"/>
+                                            <action selector="buttonThirdSVTapped" destination="fNy-Wb-wb3" eventType="touchUpInside" id="ANO-Fi-VQp"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="DsZ-TR-JDr" firstAttribute="leading" secondItem="ZNO-H6-Grv" secondAttribute="leading" id="644-6h-qZj"/>
                                     <constraint firstAttribute="trailing" secondItem="kcW-TN-DsE" secondAttribute="trailing" id="G7S-oF-RBT"/>
+                                    <constraint firstAttribute="trailing" secondItem="DsZ-TR-JDr" secondAttribute="trailing" id="OGP-H7-4A0"/>
                                     <constraint firstItem="kcW-TN-DsE" firstAttribute="leading" secondItem="ZNO-H6-Grv" secondAttribute="leading" id="n1y-nu-htO"/>
                                 </constraints>
                             </stackView>
@@ -202,7 +204,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Answer"/>
                                         <connections>
-                                            <action selector="buttonSecondVCTapped" destination="fNy-Wb-wb3" eventType="touchUpInside" id="jam-OI-S5b"/>
+                                            <action selector="buttonSecondSVTapped" destination="fNy-Wb-wb3" eventType="touchUpInside" id="jam-OI-S5b"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -220,7 +222,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="buttonfirstVCTapped" destination="fNy-Wb-wb3" eventType="touchUpInside" id="Bgh-Le-FLH"/>
+                                            <action selector="buttonFirstSVTapped:" destination="fNy-Wb-wb3" eventType="touchUpInside" id="T5u-ma-m8v"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vI8-cY-2dl">
@@ -229,7 +231,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="buttonfirstVCTapped" destination="fNy-Wb-wb3" eventType="touchUpInside" id="nMG-o6-51N"/>
+                                            <action selector="buttonFirstSVTapped:" destination="fNy-Wb-wb3" eventType="touchUpInside" id="U7j-e1-MH5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhj-G6-YE6">
@@ -238,7 +240,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="buttonfirstVCTapped" destination="fNy-Wb-wb3" eventType="touchUpInside" id="vCD-D3-fbB"/>
+                                            <action selector="buttonFirstSVTapped:" destination="fNy-Wb-wb3" eventType="touchUpInside" id="GD0-Vg-VoE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtD-4X-6Sv">
@@ -247,7 +249,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="buttonfirstVCTapped" destination="fNy-Wb-wb3" eventType="touchUpInside" id="SuW-PB-UhK"/>
+                                            <action selector="buttonFirstSVTapped:" destination="fNy-Wb-wb3" eventType="touchUpInside" id="QJS-HH-eAB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -271,13 +273,6 @@
                             <constraint firstItem="ZNO-H6-Grv" firstAttribute="leading" secondItem="fgw-8r-3CI" secondAttribute="leading" constant="16" id="rHd-xG-wOz"/>
                             <constraint firstItem="fgw-8r-3CI" firstAttribute="trailing" secondItem="MAB-VD-dmU" secondAttribute="trailing" constant="16" id="sRi-SJ-PLP"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="ZNO-H6-Grv"/>
-                                <exclude reference="MAB-VD-dmU"/>
-                                <exclude reference="QKS-sK-YnD"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Questions" id="VId-B6-XPc"/>
                     <connections>
@@ -296,6 +291,10 @@
                         <outletCollection property="stackViews" destination="MAB-VD-dmU" collectionClass="NSMutableArray" id="aUt-wt-rGq"/>
                         <outletCollection property="stackViews" destination="ZNO-H6-Grv" collectionClass="NSMutableArray" id="5Jq-Gv-nY3"/>
                         <outletCollection property="labelsThirdSV" destination="8xe-nS-Roc" collectionClass="NSMutableArray" id="hdU-S2-wsG"/>
+                        <outletCollection property="switchers" destination="iGa-7z-pGV" collectionClass="NSMutableArray" id="ant-3f-jgL"/>
+                        <outletCollection property="switchers" destination="FTY-qH-wVE" collectionClass="NSMutableArray" id="RN5-Sv-yAR"/>
+                        <outletCollection property="switchers" destination="yKm-ee-Pbd" collectionClass="NSMutableArray" id="fGk-GG-0FI"/>
+                        <outletCollection property="switchers" destination="7H3-Lg-jd5" collectionClass="NSMutableArray" id="IXJ-1a-ARf"/>
                         <segue destination="LHR-QR-7un" kind="show" identifier="results" id="dsC-FM-10L"/>
                     </connections>
                 </viewController>
