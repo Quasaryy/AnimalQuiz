@@ -17,6 +17,7 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.hidesBackButton = true
         youAreLabel.text = "You are - \(animal.rawValue)!"
         descriptionLabel.text = animal.description()
     }

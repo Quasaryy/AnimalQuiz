@@ -17,7 +17,7 @@ enum QuestionNumbers {
         case .second:
             self = .third
         case .third:
-            self = .first
+            break
         }
     }
 }
@@ -44,9 +44,9 @@ struct Questions {
             Questions(text: "Do you like car trips",
                       answers: [
                 Answers(type: .dog, text: "Adore"),
+                Answers(type: .rabbit, text: "Hate"),
                 Answers(type: .cat, text: "Like"),
                 Answers(type: .turtle, text: "Not really"),
-                Answers(type: .rabbit, text: "Hate")
             ])
         ]
     }

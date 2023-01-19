@@ -46,7 +46,7 @@ class QuestionsViewController: UIViewController {
     }
     
     // MARK: IB Actions
-
+    // Actions after tapping on button from first stack view
     @IBAction func buttonFirstSVTapped(_ sender: UIButton) {
         switch sender.titleLabel?.text {
         case currentAnswers[0].text:
@@ -61,9 +61,9 @@ class QuestionsViewController: UIViewController {
             print("Something wrong with buttons")
         }
         nextQuestion()
-        print(userAnswers)
     }
     
+    // // Actions after tapping on button from second stack view
     @IBAction func buttonSecondSVTapped() {
         for switcher in switchers {
             if switcher.tag == 0 && switcher.isOn { userAnswers.append(currentAnswers[0].type) }
@@ -72,20 +72,21 @@ class QuestionsViewController: UIViewController {
             if switcher.tag == 3 && switcher.isOn { userAnswers.append(currentAnswers[3].type) }
         }
         nextQuestion()
-        print(userAnswers)
     }
     
+    // Actions after tapping on button from third stack view
     @IBAction func buttonThirdSVTapped() {
         if slider.value <= 0.24 { userAnswers.append(currentAnswers[0].type) }
         if 0.25..<0.50 ~= slider.value { userAnswers.append(currentAnswers[1].type) }
         if 0.50..<0.75 ~= slider.value { userAnswers.append(currentAnswers[2].type) }
         if 0.75...1 ~= slider.value { userAnswers.append(currentAnswers[3].type) }
         
-        print(userAnswers)
+        // Calculating animal type and saving to var whoYouAre
         animalCalulating()
         performSegue(withIdentifier: "results", sender: nil)
     }
     
+    // Sending animal type from var whoYouAre to ResultsViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let resultVC = segue.destination as? ResultViewController
         resultVC?.animal = whoYouAre
@@ -96,7 +97,7 @@ class QuestionsViewController: UIViewController {
 // MARK: Private Methods
 extension QuestionsViewController {
     
-    // Hide all stack views on start
+    // Hide all stack views on app start and after tapping on the Answer button
     private func hideAllStackViews() {
         for stackView in stackViews {
             stackView.isHidden = true
@@ -129,12 +130,14 @@ extension QuestionsViewController {
         updateQuestion()
     }
     
+    // Getting data for first stack view UI elements
     private func firstQuestion() {
         for (button, answer) in zip(buttonsFirstSV,  currentAnswers) {
             button.setTitle(answer.text, for: .normal)
         }
     }
     
+    // Getting data for second stack view UI elements
     private func secondQuestion() {
         var incrementor = 0
         for (label, answer) in zip(labelsSecondSV, currentAnswers)  {
@@ -145,8 +148,14 @@ extension QuestionsViewController {
         }
     }
     
-    private func thirdQuestion() {}
+    // Getting data for third stack view UI elements
+    private func thirdQuestion() {
+        for (label, answer) in zip(labelsThirdSV, currentAnswers) {
+            label.text = answer.text
+        }
+    }
     
+    // Calculating total animal types in userAnswers array and calculating final animal type with saving to var whoYouAre
     private func animalCalulating() {
         var cats = 0
         var dogs = 0
