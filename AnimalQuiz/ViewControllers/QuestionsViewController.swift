@@ -48,39 +48,33 @@ class QuestionsViewController: UIViewController {
     // MARK: IB Actions
     // Actions after tapping on button from first stack view
     @IBAction func buttonFirstSVTapped(_ sender: UIButton) {
-        switch sender.titleLabel?.text {
-        case currentAnswers[0].text:
-            userAnswers.append(currentAnswers[0].type)
-        case currentAnswers[1].text:
-            userAnswers.append(currentAnswers[1].type)
-        case currentAnswers[2].text:
-            userAnswers.append(currentAnswers[2].type)
-        case currentAnswers[3].text:
-            userAnswers.append(currentAnswers[3].type)
-        default:
-            print("Something wrong with buttons")
-        }
+        guard let indexButton = buttonsFirstSV.firstIndex(of: sender) else { return }
+        userAnswers.append(currentAnswers[indexButton].type)
+        
         nextQuestion()
+        print(userAnswers.description)
     }
     
     // // Actions after tapping on button from second stack view
     @IBAction func buttonSecondSVTapped() {
-        for switcher in switchers {
-            if switcher.tag == 0 && switcher.isOn { userAnswers.append(currentAnswers[0].type) }
-            if switcher.tag == 1 && switcher.isOn { userAnswers.append(currentAnswers[1].type) }
-            if switcher.tag == 2 && switcher.isOn { userAnswers.append(currentAnswers[2].type) }
-            if switcher.tag == 3 && switcher.isOn { userAnswers.append(currentAnswers[3].type) }
+        for (switcher, answer) in zip(switchers, currentAnswers) {
+            if switcher.isOn {
+                userAnswers.append(answer.type)
+            }
         }
+        
         nextQuestion()
+        print(userAnswers.description)
     }
     
     // Actions after tapping on button from third stack view
     @IBAction func buttonThirdSVTapped() {
         if slider.value <= 0.24 { userAnswers.append(currentAnswers[0].type) }
-        if 0.25..<0.50 ~= slider.value { userAnswers.append(currentAnswers[1].type) }
-        if 0.50..<0.75 ~= slider.value { userAnswers.append(currentAnswers[2].type) }
-        if 0.75...1 ~= slider.value { userAnswers.append(currentAnswers[3].type) }
+        if 0.25..<0.50 ~= slider.value { userAnswers.append(currentAnswers[2].type) }
+        if 0.50..<0.75 ~= slider.value { userAnswers.append(currentAnswers[3].type) }
+        if 0.75...1 ~= slider.value { userAnswers.append(currentAnswers[1].type) }
         
+        print(userAnswers.description)
         // Calculating animal type and saving to var whoYouAre
         animalCalulating()
         performSegue(withIdentifier: "results", sender: nil)
