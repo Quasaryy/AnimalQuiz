@@ -17,5 +17,7 @@ class StartViewController: UIViewController {
         performSegue(withIdentifier: "questions", sender: nil)
     }
     
+    @IBAction func unwindSegueToStartVC(segue: UIStoryboardSegue) {}
+    
 }
 

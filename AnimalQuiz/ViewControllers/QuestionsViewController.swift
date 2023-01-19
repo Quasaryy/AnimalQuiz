@@ -35,6 +35,7 @@ class QuestionsViewController: UIViewController {
         questions[currentIndex].answers
     }
     var userAnswers: [AnimalsType] = []
+    var whoYouAre: AnimalsType!
 
     
     // MARK: Override Methods
@@ -60,6 +61,7 @@ class QuestionsViewController: UIViewController {
             print("Something wrong with buttons")
         }
         nextQuestion()
+        print(userAnswers)
     }
     
     @IBAction func buttonSecondSVTapped() {
@@ -70,10 +72,23 @@ class QuestionsViewController: UIViewController {
             if switcher.tag == 3 && switcher.isOn { userAnswers.append(currentAnswers[3].type) }
         }
         nextQuestion()
+        print(userAnswers)
     }
     
     @IBAction func buttonThirdSVTapped() {
+        if slider.value <= 0.24 { userAnswers.append(currentAnswers[0].type) }
+        if 0.25..<0.50 ~= slider.value { userAnswers.append(currentAnswers[1].type) }
+        if 0.50..<0.75 ~= slider.value { userAnswers.append(currentAnswers[2].type) }
+        if 0.75...1 ~= slider.value { userAnswers.append(currentAnswers[3].type) }
         
+        print(userAnswers)
+        animalCalulating()
+        performSegue(withIdentifier: "results", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let resultVC = segue.destination as? ResultViewController
+        resultVC?.animal = whoYouAre
     }
     
 }
@@ -94,7 +109,6 @@ extension QuestionsViewController {
         stackViews[currentIndex].isHidden = false
         title = "Question \(currentIndex + 1) from \(questions.count)"
         progressQuiz.setProgress(Float(currentIndex) / Float(questions.count), animated: true)
-        
         questionLabel.text = questions[currentIndex].text
         
         switch currentQuestion {
@@ -110,11 +124,6 @@ extension QuestionsViewController {
     
     // Next question after tapping Answer button
     private func nextQuestion() {
-//        if currentIndex >= (questions.count - 1) {
-//            currentIndex = 0
-//        } else {
-//            currentIndex += 1
-//        }
         currentIndex += 1
         currentQuestion.nextQuestion()
         updateQuestion()
@@ -131,12 +140,41 @@ extension QuestionsViewController {
         for (label, answer) in zip(labelsSecondSV, currentAnswers)  {
             label.text = answer.text
             switchers[incrementor].tag = incrementor
+            switchers[incrementor].isOn = false
             incrementor += 1
         }
     }
     
-    private func thirdQuestion() {
-        //
+    private func thirdQuestion() {}
+    
+    private func animalCalulating() {
+        var cats = 0
+        var dogs = 0
+        var turtles = 0
+        var rabbits = 0
+        
+        for animalType in userAnswers {
+            switch animalType {
+            case .cat:
+                cats += 1
+            case .dog:
+                dogs += 1
+            case .turtle:
+                turtles += 1
+            case .rabbit:
+                rabbits += 1
+            }
+        }
+        
+        if cats >= dogs, cats >= turtles, cats >= rabbits {
+            whoYouAre = AnimalsType.cat
+        } else if dogs >= cats, dogs >= turtles, dogs >= rabbits {
+            whoYouAre = AnimalsType.dog
+        } else if turtles >= cats, turtles >= dogs, turtles >= rabbits {
+            whoYouAre = AnimalsType.turtle
+        } else if rabbits >= cats, rabbits >= dogs, rabbits >= turtles {
+            whoYouAre = AnimalsType.rabbit
+        }
     }
     
 }

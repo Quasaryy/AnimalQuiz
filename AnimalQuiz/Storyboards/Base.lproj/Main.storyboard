@@ -336,7 +336,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Results" id="SPs-qg-rhf">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="yeE-yb-5TT"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="yeE-yb-5TT">
+                            <connections>
+                                <segue destination="ydh-sd-9nJ" kind="unwind" unwindAction="unwindSegueToStartVCWithSegue:" id="Cnh-MP-q0V"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="nBi-qR-VgN" id="FGC-is-PQA"/>
@@ -344,6 +348,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zku-vJ-BnH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="ydh-sd-9nJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2281" y="1"/>
         </scene>

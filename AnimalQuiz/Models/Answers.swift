@@ -10,6 +10,19 @@ enum AnimalsType: Character {
     case dog = "🐶"
     case turtle = "🐢"
     case rabbit = "🐰"
+    
+    func description() -> String {
+        switch self {
+        case .cat:
+            return "ssdfdsfdsfsfsdf"
+        case .dog:
+            return "ssdfdsfdsfsfsdf"
+        case .turtle:
+            return "ssdfdsfdsfsfsdf"
+        case .rabbit:
+            return "ssdfdsfdsfsfsdf"
+        }
+    }
 }
 
 struct Answers {

@@ -8,15 +8,17 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-
-    // MARK: IB Outlets
+        
     @IBOutlet var youAreLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     
-    // MARK: Override Methods
+    var animal: AnimalsType!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        youAreLabel.text = "You are - \(animal.rawValue)!"
+        descriptionLabel.text = animal.description()
     }
 
 }
