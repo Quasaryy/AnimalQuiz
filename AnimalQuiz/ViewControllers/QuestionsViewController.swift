@@ -24,7 +24,11 @@ class QuestionsViewController: UIViewController {
     @IBOutlet var switchers: [UISwitch]!
     
     // Elements of third stack view
-    @IBOutlet var slider: UISlider!
+    @IBOutlet var slider: UISlider! {
+        didSet {
+            slider.maximumValue = Float(currentAnswers.count - 1)
+        }
+    }
     @IBOutlet var labelsThirdSV: [UILabel]!
     
     // MARK: Properties
@@ -48,38 +52,27 @@ class QuestionsViewController: UIViewController {
     // MARK: IB Actions
     // Actions after tapping on button from first stack view
     @IBAction func buttonFirstSVTapped(_ sender: UIButton) {
-        switch sender.titleLabel?.text {
-        case currentAnswers[0].text:
-            userAnswers.append(currentAnswers[0].type)
-        case currentAnswers[1].text:
-            userAnswers.append(currentAnswers[1].type)
-        case currentAnswers[2].text:
-            userAnswers.append(currentAnswers[2].type)
-        case currentAnswers[3].text:
-            userAnswers.append(currentAnswers[3].type)
-        default:
-            print("Something wrong with buttons")
-        }
+        guard let indexButton = buttonsFirstSV.firstIndex(of: sender) else { return }
+        userAnswers.append(currentAnswers[indexButton].type)
+        
         nextQuestion()
     }
     
     // // Actions after tapping on button from second stack view
     @IBAction func buttonSecondSVTapped() {
-        for switcher in switchers {
-            if switcher.tag == 0 && switcher.isOn { userAnswers.append(currentAnswers[0].type) }
-            if switcher.tag == 1 && switcher.isOn { userAnswers.append(currentAnswers[1].type) }
-            if switcher.tag == 2 && switcher.isOn { userAnswers.append(currentAnswers[2].type) }
-            if switcher.tag == 3 && switcher.isOn { userAnswers.append(currentAnswers[3].type) }
+        for (switcher, answer) in zip(switchers, currentAnswers) {
+            if switcher.isOn {
+                userAnswers.append(answer.type)
+            }
         }
+        
         nextQuestion()
     }
     
     // Actions after tapping on button from third stack view
     @IBAction func buttonThirdSVTapped() {
-        if slider.value <= 0.24 { userAnswers.append(currentAnswers[0].type) }
-        if 0.25..<0.50 ~= slider.value { userAnswers.append(currentAnswers[1].type) }
-        if 0.50..<0.75 ~= slider.value { userAnswers.append(currentAnswers[2].type) }
-        if 0.75...1 ~= slider.value { userAnswers.append(currentAnswers[3].type) }
+        let indexFromSliderValue = lrintf(slider.value)
+        userAnswers.append(currentAnswers[indexFromSliderValue].type)
         
         // Calculating animal type and saving to var whoYouAre
         animalCalulating()
@@ -150,40 +143,30 @@ extension QuestionsViewController {
     
     // Getting data for third stack view UI elements
     private func thirdQuestion() {
-        for (label, answer) in zip(labelsThirdSV, currentAnswers) {
-            label.text = answer.text
-        }
+        labelsThirdSV.first?.text = currentAnswers.first?.text
+        labelsThirdSV.last?.text = currentAnswers.last?.text
     }
     
-    // Calculating total animal types in userAnswers array and calculating final animal type with saving to var whoYouAre
+    // Calculating total animal types in userAnswers array and calculating most frequency animal type with saving to var whoYouAre
     private func animalCalulating() {
-        var cats = 0
-        var dogs = 0
-        var turtles = 0
-        var rabbits = 0
+        var animalDictionary: [AnimalsType: Int] = [:]
         
-        for animalType in userAnswers {
-            switch animalType {
-            case .cat:
-                cats += 1
-            case .dog:
-                dogs += 1
-            case .turtle:
-                turtles += 1
-            case .rabbit:
-                rabbits += 1
+        for answer in userAnswers {
+            if let animal = animalDictionary[answer] {
+                animalDictionary.updateValue(animal + 1, forKey: answer)
+            } else {
+                animalDictionary[answer] = 1
             }
         }
         
-        if cats >= dogs, cats >= turtles, cats >= rabbits {
-            whoYouAre = AnimalsType.cat
-        } else if dogs >= cats, dogs >= turtles, dogs >= rabbits {
-            whoYouAre = AnimalsType.dog
-        } else if turtles >= cats, turtles >= dogs, turtles >= rabbits {
-            whoYouAre = AnimalsType.turtle
-        } else if rabbits >= cats, rabbits >= dogs, rabbits >= turtles {
-            whoYouAre = AnimalsType.rabbit
-        }
+        let sortedAnimalDictionary = animalDictionary.sorted { $0.value > $1.value }
+        whoYouAre = sortedAnimalDictionary.first?.key
+        
+        // Other variant of calculating
+//        let sortedAnimalDictionary2 = Dictionary(grouping: userAnswers, by: { $0 })
+//            .sorted(by: { $0.value.count > $1.value.count })
+//            .first?.key
+//        whoYouAre = sortedAnimalDictionary2
     }
     
 }
