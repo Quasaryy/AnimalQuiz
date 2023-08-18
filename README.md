@@ -1,14 +1,17 @@
 # AnimalQuiz
 iOS application with questions on the basis of which the user is given the result of which animal best suits him.
 
-## Main screen
-![Иллюстрация к проекту](https://github.com/Quasaryy/EmojiTable/blob/main/1.png)
+## Start screen
+![Иллюстрация к проекту](https://github.com/Quasaryy/AnimalQuiz/blob/main/1.png)
 
-## Edit mode
-![Иллюстрация к проекту](https://github.com/Quasaryy/EmojiTable/blob/main/2.png)
+## Question 1
+![Иллюстрация к проекту](https://github.com/Quasaryy/AnimalQuiz/blob/main/2.png)
 
-## Custom right swipe
-![Иллюстрация к проекту](https://github.com/Quasaryy/EmojiTable/blob/main/4.png)
+## Question 2
+![Иллюстрация к проекту](https://github.com/Quasaryy/AnimalQuiz/blob/main/3.png)
 
-## Adding new or editin existing emoji
-![Иллюстрация к проекту](https://github.com/Quasaryy/EmojiTable/blob/main/5.png)
+## Question 3
+![Иллюстрация к проекту](https://github.com/Quasaryy/AnimalQuiz/blob/main/4.png)
+
+## Result
+![Иллюстрация к проекту](https://github.com/Quasaryy/AnimalQuiz/blob/main/5.png)
