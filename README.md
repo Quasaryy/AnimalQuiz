@@ -15,3 +15,6 @@ iOS application with questions on the basis of which the user is given the resul
 
 ## Result
 ![Иллюстрация к проекту](https://github.com/Quasaryy/AnimalQuiz/blob/main/5.png)
+
+## Video
+[![Watch the video](https://img.youtube.com/vi/UCy8A8H8vHA/maxresdefault.jpg)](https://youtu.be/UCy8A8H8vHA)
