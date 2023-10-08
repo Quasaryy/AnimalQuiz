@@ -10,6 +10,7 @@ import UIKit
 class QuestionsViewController: UIViewController {
     
     // MARK: IB Outlets
+    
     @IBOutlet var progressQuiz: UIProgressView!
     @IBOutlet var questionLabel: UILabel!
     
@@ -18,7 +19,7 @@ class QuestionsViewController: UIViewController {
     
     // Elements of first stack view
     @IBOutlet var buttonsFirstSV: [UIButton]!
-
+    
     // Elements of second stack view
     @IBOutlet var labelsSecondSV: [UILabel]!
     @IBOutlet var switchers: [UISwitch]!
@@ -32,6 +33,7 @@ class QuestionsViewController: UIViewController {
     @IBOutlet var labelsThirdSV: [UILabel]!
     
     // MARK: Properties
+    
     var questions = Questions.getQuestions()
     var currentIndex = 0
     var currentQuestion = QuestionNumbers.first
@@ -39,17 +41,18 @@ class QuestionsViewController: UIViewController {
         questions[currentIndex].answers
     }
     var userAnswers: [AnimalsType] = []
-    var whoYouAre: AnimalsType!
-
+    var whoYouAre: AnimalsType?
+    
     
     // MARK: Override Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         updateQuestion()
     }
     
     // MARK: IB Actions
+    
     // Actions after tapping on button from first stack view
     @IBAction func buttonFirstSVTapped(_ sender: UIButton) {
         guard let indexButton = buttonsFirstSV.firstIndex(of: sender) else { return }
@@ -60,10 +63,8 @@ class QuestionsViewController: UIViewController {
     
     // // Actions after tapping on button from second stack view
     @IBAction func buttonSecondSVTapped() {
-        for (switcher, answer) in zip(switchers, currentAnswers) {
-            if switcher.isOn {
-                userAnswers.append(answer.type)
-            }
+        for (switcher, answer) in zip(switchers, currentAnswers) where switcher.isOn {
+            userAnswers.append(answer.type)
         }
         
         nextQuestion()
@@ -88,6 +89,7 @@ class QuestionsViewController: UIViewController {
 }
 
 // MARK: Private Methods
+
 extension QuestionsViewController {
     
     // Hide all stack views on app start and after tapping on the Answer button
@@ -106,14 +108,13 @@ extension QuestionsViewController {
         questionLabel.text = questions[currentIndex].text
         
         switch currentQuestion {
-        case .first:
-            firstQuestion()
-        case .second:
-            secondQuestion()
-        case .third:
-            thirdQuestion()
+            case .first:
+                firstQuestion()
+            case .second:
+                secondQuestion()
+            case .third:
+                thirdQuestion()
         }
-        
     }
     
     // Next question after tapping Answer button
@@ -133,7 +134,7 @@ extension QuestionsViewController {
     // Getting data for second stack view UI elements
     private func secondQuestion() {
         var incrementor = 0
-        for (label, answer) in zip(labelsSecondSV, currentAnswers)  {
+        for (label, answer) in zip(labelsSecondSV, currentAnswers) {
             label.text = answer.text
             switchers[incrementor].tag = incrementor
             switchers[incrementor].isOn = false
@@ -163,10 +164,10 @@ extension QuestionsViewController {
         whoYouAre = sortedAnimalDictionary.first?.key
         
         // Other variant of calculating
-//        let sortedAnimalDictionary2 = Dictionary(grouping: userAnswers, by: { $0 })
-//            .sorted(by: { $0.value.count > $1.value.count })
-//            .first?.key
-//        whoYouAre = sortedAnimalDictionary2
+        //        let sortedAnimalDictionary2 = Dictionary(grouping: userAnswers, by: { $0 })
+        //            .sorted(by: { $0.value.count > $1.value.count })
+        //            .first?.key
+        //        whoYouAre = sortedAnimalDictionary2
     }
     
 }

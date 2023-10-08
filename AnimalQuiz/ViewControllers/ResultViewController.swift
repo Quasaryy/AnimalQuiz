@@ -12,12 +12,13 @@ class ResultViewController: UIViewController {
     @IBOutlet var youAreLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     
-    var animal: AnimalsType!
+    var animal: AnimalsType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.hidesBackButton = true
+        guard let animal = animal else { return }
         youAreLabel.text = "You are - \(animal.rawValue)!"
         descriptionLabel.text = animal.description()
     }

@@ -18,6 +18,5 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func unwindSegueToStartVC(segue: UIStoryboardSegue) {}
-    
-}
 
+}

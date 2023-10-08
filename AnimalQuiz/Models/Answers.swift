@@ -13,14 +13,14 @@ enum AnimalsType: Character {
     
     func description() -> String {
         switch self {
-        case .cat:
-            return "Вы себе на уме. Любите гулять сами по себе. Вы цените одиночество."
-        case .dog:
-            return "Вам нравится быть с друзьями. Вы окружаете себя людьми, которые вам нравятся и всегда готовы помочь."
-        case .turtle:
-            return "Ваша сила - в мудрости. Медленный и вдумчивый выигрывает на больших дистанциях."
-        case .rabbit:
-            return "Вам нравится все мягкое. Вы здоровы и полны энергии."
+            case .cat:
+                return "You're on your own. Love to walk by yourself. You value solitude."
+            case .dog:
+                return "You enjoy being with friends. You surround yourself with people you like and are always willing to help."
+            case .turtle:
+                return "Your strength is in wisdom. Slow and thoughtful wins over long distances."
+            case .rabbit:
+                return "You like everything soft. You are healthy and full of energy."
         }
     }
 }
