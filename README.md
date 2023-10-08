@@ -25,7 +25,7 @@
   - Switchers
   - Slider
   - Segues
-  - For all question used only one ViewController
+  - For all questions, only one ViewController was used without transitions
   - And many more
 
 ## Start screen
