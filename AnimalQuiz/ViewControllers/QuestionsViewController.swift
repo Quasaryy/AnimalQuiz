@@ -43,7 +43,6 @@ class QuestionsViewController: UIViewController {
     var userAnswers: [AnimalsType] = []
     var whoYouAre: AnimalsType?
     
-    
     // MARK: Override Methods
     
     override func viewDidLoad() {
@@ -126,7 +125,7 @@ extension QuestionsViewController {
     
     // Getting data for first stack view UI elements
     private func firstQuestion() {
-        for (button, answer) in zip(buttonsFirstSV,  currentAnswers) {
+        for (button, answer) in zip(buttonsFirstSV, currentAnswers) {
             button.setTitle(answer.text, for: .normal)
         }
     }
