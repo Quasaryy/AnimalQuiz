@@ -18,7 +18,7 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.hidesBackButton = true
-        guard let animal = animal else { return }
+        guard let animal else { return }
         youAreLabel.text = "You are - \(animal.rawValue)!"
         descriptionLabel.text = animal.description()
     }
